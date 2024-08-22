@@ -1,6 +1,36 @@
+const backButton = document.createElement("button");
+backButton.textContent = "Voltar"
+backButton.style.position = "absolute"
+backButton.style.top = "20px"
+backButton.style.left = "150px"
+backButton.style.padding = "10px"
+backButton.style.fontSize = "16px"
+backButton.style.cursor = "pointer"
+backButton.style.backgroundColor = "transparent";
+backButton.style.color = "#fff"
+backButton.style.border = "none"
+backButton.style.borderRadius = "5px"
+backButton.style.transition = "background-color 0.3s ease";
+backButton.style.fontStyle = "bold"
+document.body.appendChild(backButton)
+
+backButton.addEventListener("mouseenter", function () {
+  backButton.style.backgroundColor = "#1d4d34"
+});
+
+backButton.addEventListener("mouseleave", function () {
+  backButton.style.backgroundColor = "transparent"
+});
+
+backButton.addEventListener("click", function () {
+  window.history.back()
+});
+
+
 const canvasEl = document.querySelector("canvas"),
+
         canvasCtx = canvasEl.getContext("2d"),
-        gapX = 10
+        gapX = 10  
 
       const mouse = { x: 0, y: 0 }
 
@@ -43,7 +73,7 @@ const canvasEl = document.querySelector("canvas"),
         y: 0,
         w: line.w,
         h: 200,
-        speed: 4,
+        speed: 3,
         _move: function () {
           if (this.y + this.h / 2 < ball.y + ball.r) {
             this.y += this.speed
